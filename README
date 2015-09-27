@@ -1,1 +1,10 @@
-Nothing to see here yet.
+This repository is contains information related to the tool Verily presented at ICSE-2014. The tool was originally presented in this paper.
+
+This repository is not the original repository for this tool. Here are some links to the original project:
+
+The Official Project <a href="http://goverily.org">Page</a>, including binaries for tool
+Source Code forked from Original repository of tool
+
+In this repository, for Verily you will find:
+:white_check_mark: Source code (available)
+:white_check_mark: The original tool (available)
