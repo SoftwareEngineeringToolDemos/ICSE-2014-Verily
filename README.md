@@ -1,6 +1,6 @@
 This repository contains information related to the tool Verily presented at ICSE-2014 by John L. Singleton, Gary T. Leavens. The tool was originally presented in this paper: http://dl.acm.org/citation.cfm?doid=2591062.2591069
 
-This repository is not the original repository for this tool. Here are some links to the original project:
+This repository _is not_ the original repository for this tool. Here are some links to the original project:
 The Official Project Page, including binaries and documentation for tool can be found here : http://goverily.org
 The Source Code is available in this repository.
 
