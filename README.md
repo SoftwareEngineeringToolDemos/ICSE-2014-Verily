@@ -3,6 +3,7 @@ This repository contains information related to the tool Verily presented at ICS
 This repository _is not_ the original repository for this tool. Here are some links to the original project:
 * [The Official Project Page](http://goverily.org), where binaries and documentation for tool can be found.
 * The Source Code is available in this repository.
+* [A Video of the Tool](https://www.youtube.com/watch?v=TjRF7E4um3c)
 
 In this repository, for Verily you will find:
 * :white_check_mark: [Source code](https://github.com/SoftwareEngineeringToolDemos/ICSE-2014-Verily/archive/v0.1.2.zip) (available)
