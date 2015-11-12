@@ -1,4 +1,5 @@
 Using the Vagrant Script:
+
 1. Download and Install Vagrant from [here](https://www.vagrantup.com/downloads.html)
 2. Next, Download and Install VirtualBox from [here](https://www.virtualbox.org/wiki/Downloads)
 3. Save the Vagrantfile on your machine and save it with name 'Vagrantfile'. 
