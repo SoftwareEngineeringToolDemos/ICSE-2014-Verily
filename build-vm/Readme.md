@@ -11,7 +11,8 @@ User     : vagrant</br>
 Password : vagrant
 
 ### References
-[Vagrant shell documentation](https://docs.vagrantup.com/v2/provisioning/shell.html)
-[Verily Documentation](http://docs.goverily.org/en/latest/quickstart.html#using-verily-in-vagrant)
+1. [Vagrant shell documentation](https://docs.vagrantup.com/v2/provisioning/shell.html)
+2. [Verily Documentation](http://docs.goverily.org/en/latest/quickstart.html#using-verily-in-vagrant)
+
 ### Acknowledgements
 I would like to thank the uploader of the ubuntu desktop basebox "box-cutter/ubuntu1404-desktop" for making it availble on vagrant cloud.
