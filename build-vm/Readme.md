@@ -6,9 +6,14 @@
 5. This will download the Ubuntu OS and boot it up, it should auto-login.
 6. Wait until all scripts in Command Prompt/ Terminal complete setting up environment.
 
-###Credentials for VM:</br>
-User     : vagrant</br>
-Password : vagrant
+###Details of the built VM
+As part of the load process, the following is loaded in the VM (as part of the Vagrant script)
+
+1.Ubuntu Desktop 14.04</br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Default username: vagrant</br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Default password: vagrant</br>
+2. Open JDK 7</br>
+3. Maven</br>
 
 ### References
 1. [Vagrant shell documentation](https://docs.vagrantup.com/v2/provisioning/shell.html)
