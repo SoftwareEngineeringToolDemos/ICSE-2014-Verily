@@ -6,8 +6,12 @@
 5. This will download the Ubuntu OS and boot it up, it should auto-login.
 6. Wait until all scripts in Command Prompt/ Terminal complete setting up environment.
 
-#Credentials for VM:</br>
+###Credentials for VM:</br>
 User     : vagrant</br>
 Password : vagrant
 
-#References
+### References
+[Vagrant shell documentation](https://docs.vagrantup.com/v2/provisioning/shell.html)
+[Verily Documentation](http://docs.goverily.org/en/latest/quickstart.html#using-verily-in-vagrant)
+### Acknowledgements
+I would like to thank the uploader of the ubuntu desktop basebox "box-cutter/ubuntu1404-desktop" for making it availble on vagrant cloud.
