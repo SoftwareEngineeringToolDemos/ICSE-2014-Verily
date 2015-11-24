@@ -1,23 +1,68 @@
+# Vagrant configuration
 Vagrant.configure(2) do |config|
-  #Getting Ubuntu 14.04 64bit Desktop base-box
-  config.vm.box = "box-cutter/ubuntu1404-desktop"
-  #Configuring Network for Verily
-  config.vm.network :forwarded_port, host: 4000, guest: 4000
+  # Configures the base vagrant box found in https://atlas.hashicorp.com/
+  config.vm.box = "boxcutter/ubuntu1404-desktop"
+  # Configure the VirtualBox provider for the VM
   config.vm.provider "virtualbox" do |vb|
-    #Enabling GUI
-     vb.gui = true
-    #Setting Memory for VM
-     vb.memory = "2048"
-    #Setting VM Name
-     vb.name = "ICSE-2014-Verily"
-   end
+    # Display the VirtualBox GUI when booting the machine
+    vb.gui = true
+    # Customize the amount of memory on the VM:
+    vb.memory = "2048"
+	# Provide a name to the VM
+	vb.name = "ICSE-2014-Verily"
+  end
+ 
+  # Use shell script to install specific software required to
+  # run the tool
   config.vm.provision "shell", inline: <<-SHELL
-     sudo apt-get update
-    #Installing Java
-     sudo apt-get -y install openjdk-7-jdk
-    #Installing Maven
-     sudo apt-get -y install maven
-    #Disabling Screenlock on Idle
-     sudo gsettings set org.gnome.desktop.screensaver lock-enabled false
+	# Install Open JDK 7
+	sudo apt-get update
+	sudo apt-get -y install openjdk-7-jdk
+	sudo apt-get -y install maven	
+
+    #Generating Install script file for Verily
+    cat >/tmp/install-verily.xml <<EOL
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<AutomatedInstallation langpack="eng">
+  <com.izforge.izpack.panels.HelloPanel id="UNKNOWN (com.izforge.izpack.panels.HelloPanel)"/>
+  <com.izforge.izpack.panels.LicencePanel id="UNKNOWN (com.izforge.izpack.panels.LicencePanel)"/>
+  <com.izforge.izpack.panels.TargetPanel id="UNKNOWN (com.izforge.izpack.panels.TargetPanel)">
+    <installpath>/usr/local/Verily</installpath>
+  </com.izforge.izpack.panels.TargetPanel>
+  <com.izforge.izpack.panels.InstallPanel id="UNKNOWN (com.izforge.izpack.panels.InstallPanel)"/>
+  <com.izforge.izpack.panels.FinishPanel id="UNKNOWN (com.izforge.izpack.panels.FinishPanel)"/>
+</AutomatedInstallation>
+EOL
+
+	# Download & Install Verily
+	sudo update-alternatives --set java /usr/lib/jvm/java-7-openjdk-i386/jre/bin/java
+    sudo wget https://github.com/jsinglet/Verily/releases/download/v0.1.2/verily-installer-0.1.2.jar
+    sudo java -jar verily-installer-0.1.2.jar /tmp/install-verily.xml
+	
+	#Creating Desktop help files
+	sudo wget -O /home/vagrant/Desktop/desktop.tar.gz "https://github.com/SoftwareEngineeringToolDemos/ICSE-2014-Verily/raw/master/build-vm/desktop.tar.gz"
+	tar zxvf /home/vagrant/Desktop/desktop.tar.gz -C /home/vagrant/Desktop/
+    mv verily-installer-0.1.2.jar /home/vagrant/Desktop/Verily_Binaries_and_Source_Code/verily-installer-0.1.2.jar
+    rm /home/vagrant/Desktop/desktop.tar.gz
+
+	# Add Verily as startup application
+	sudo mkdir "/home/vagrant/.config/autostart"
+	sudo cp Desktop/Verily.desktop /home/vagrant/.config/autostart/Verily.desktop
+		
+	# Remove unnecessary launcher applications
+	sudo rm -f "/usr/share/applications/ubuntu-amazon-default.desktop"
+	sudo rm -f "/usr/share/applications/libreoffice-calc.desktop"
+	sudo rm -f "/usr/share/applications/libreoffice-writer.desktop"
+	sudo rm -f "/usr/share/applications/libreoffice-impress.desktop"
+	sudo rm -f "/usr/share/applications/ubuntu-software-center.desktop"
+
+	# Disable screen lockout
+	mv /home/vagrant/Desktop/login_desktop.sh /home/vagrant/login_desktop.sh
+	sudo update-desktop-database
+	sudo cp /home/vagrant/Desktop/login_desktop.sh.desktop /etc/xdg/autostart/login_desktop.sh.desktop
+	rm /home/vagrant/Desktop/login_desktop.sh.desktop
+	# Reboot the VM
+	sudo reboot
+	
   SHELL
 end
