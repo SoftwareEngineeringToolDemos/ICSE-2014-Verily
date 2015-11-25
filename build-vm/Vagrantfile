@@ -9,7 +9,7 @@ Vagrant.configure(2) do |config|
     # Customize the amount of memory on the VM:
     vb.memory = "2048"
 	# Provide a name to the VM
-	vb.name = "ICSE-2014-Verily"
+	vb.name = "NewHanover-sbobba3-Verily"
   end
  
   # Use shell script to install specific software required to
