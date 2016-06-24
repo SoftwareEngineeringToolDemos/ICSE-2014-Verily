@@ -8,7 +8,7 @@ This repository _is not_ the original repository for this tool. Here are some li
 In this repository, for Verily you will find:
 * :white_check_mark: [Source code](https://github.com/SoftwareEngineeringToolDemos/ICSE-2014-Verily/archive/v0.1.2.zip) (available)
 * :white_check_mark: [The original tool](https://github.com/SoftwareEngineeringToolDemos/ICSE-2014-Verily/releases/download/v0.1.2/verily-installer-0.1.2.jar) (available)
-* :white_check_mark: [Virtual Machine containing the tool](https://drive.google.com/a/ncsu.edu/file/d/0By4jMWBBRmCHTF9faDJFMi1aOHM/view?usp=sharing) (available)
+* :white_check_mark: [Virtual machine containing tool](http://go.ncsu.edu/SE-tool-VMs)
 
 This tool is licensed under General Public License(GPL).
 
